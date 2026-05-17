@@ -1,3 +1,8 @@
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.Properties.Resources.resources
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.GenerateResource.cache
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.Form1.resources
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\BranchSalesAutomation.exe.config
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\BranchSalesAutomation.exe
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\BranchSalesAutomation.pdb
@@ -5,11 +10,7 @@ C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\Branc
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\EntityFramework.xml
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.AssemblyReference.cache
-C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.Form1.resources
-C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.Properties.Resources.resources
-C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.GenerateResource.cache
-C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.csproj.CoreCompileInputs.cache
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSa.79734484.Up2Date
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.exe
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.pdb
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.exe.config

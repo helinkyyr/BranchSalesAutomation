@@ -57,16 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext\BranchSalesDbContext.cs" />
-    <Compile Include="Models\Branch.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
