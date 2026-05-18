@@ -30,6 +30,7 @@
         {
             this.dgv_product = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmb_category = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün İşlemleri ";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 127);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Kategori:";
             // 
             // cmb_category
             // 
@@ -119,6 +128,7 @@
             this.btn_list.TabIndex = 2;
             this.btn_list.Text = "LİSTELE";
             this.btn_list.UseVisualStyleBackColor = true;
+            this.btn_list.Click += new System.EventHandler(this.btn_list_Click);
             // 
             // btn_add
             // 
@@ -147,15 +157,6 @@
             this.btn_delete.TabIndex = 5;
             this.btn_delete.Text = "SİL";
             this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Kategori:";
             // 
             // Form1
             // 

@@ -43,6 +43,10 @@ namespace BranchSalesAutomation
             cmb_category.DisplayMember = "category_name";
             cmb_category.ValueMember = "category_id";
         }
-    
+
+        private void btn_list_Click(object sender, EventArgs e)
+        {
+            dgv_product.DataSource = db.Products.ToList();
+        }
     }
 }
