@@ -136,6 +136,11 @@ namespace BranchSalesAutomation
         {
             try
             {
+                DialogResult sonuc = MessageBox.Show("Bu ürünü silmek istediğinize emin misiniz?",
+                    "Silme Onayı",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
                 int id = Convert.ToInt32(dgv_product.CurrentRow.Cells["product_id"].Value);
 
                 Product product = db.Products.Find(id);

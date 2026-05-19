@@ -20,5 +20,10 @@ namespace BranchSalesAutomation.Models
         public int product_id { get; set; }
         [Required]
         public int quantity { get; set; }
+        [ForeignKey("product_id")]
+        public virtual Product Product { get; set; }
+
+        [ForeignKey("branch_id")]
+        public virtual Branch Branch { get; set; }
     }
 }
