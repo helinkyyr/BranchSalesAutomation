@@ -19,5 +19,8 @@ namespace BranchSalesAutomation.Models
         public string product_name { get; set; }
 
         public decimal product_price { get; set; }
+
+        [Required]
+        public int category_id { get; set; }
     }
 }

@@ -53,6 +53,7 @@
             this.dgv_product.RowTemplate.Height = 24;
             this.dgv_product.Size = new System.Drawing.Size(1281, 308);
             this.dgv_product.TabIndex = 0;
+            this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
             // 
             // groupBox1
             // 
@@ -138,6 +139,7 @@
             this.btn_add.TabIndex = 3;
             this.btn_add.Text = "EKLE";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
@@ -157,6 +159,7 @@
             this.btn_delete.TabIndex = 5;
             this.btn_delete.Text = "SİL";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // Form1
             // 
