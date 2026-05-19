@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BranchSalesAutomation.Models
 {
-    [Table("Stocks")]
+    [Table("Stock")]
     internal class Stock
     {
         [Key]

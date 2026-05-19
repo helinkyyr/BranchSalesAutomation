@@ -51,6 +51,7 @@ namespace BranchSalesAutomation
                 MessageBox.Show(ex.Message);
             }
         }
+        
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -92,8 +93,9 @@ namespace BranchSalesAutomation
             }
         }
 
-        
-            private void btn_add_Click(object sender, EventArgs e)
+
+
+        private void btn_add_Click(object sender, EventArgs e)
         {
             try
             {
@@ -115,7 +117,7 @@ namespace BranchSalesAutomation
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void dgv_product_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -158,5 +160,6 @@ namespace BranchSalesAutomation
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

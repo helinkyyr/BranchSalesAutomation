@@ -21,6 +21,9 @@ namespace BranchSalesAutomation.Models
         public int stock_id { get; set; }
 
         public int salesquantity { get; set; }
+
+        [ForeignKey("stock_id")]
+        public virtual Stock Stock { get; set; }
     }    
         
          

@@ -18,6 +18,10 @@ namespace BranchSalesAutomation.Models
         [StringLength(100)]
         public string branch_name { get; set; }
 
-     
+        public virtual ICollection<Sales> Sales { get; set; }
+
+        public virtual ICollection<Stock> Stocks { get; set; }
+
+
     }
 }

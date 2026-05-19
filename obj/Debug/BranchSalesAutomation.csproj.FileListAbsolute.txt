@@ -14,3 +14,4 @@ C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\Branc
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.exe
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.pdb
 C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.exe.config
+C:\Users\user\OneDrive\Desktop\BranchSalesAutomation\BranchSalesAutomation\BranchSalesAutomation\obj\Debug\BranchSalesAutomation.FormStock.resources

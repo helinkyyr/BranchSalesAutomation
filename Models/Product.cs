@@ -22,5 +22,11 @@ namespace BranchSalesAutomation.Models
 
         [Required]
         public int category_id { get; set; }
+
+        [ForeignKey("category_id")]
+        public virtual Category Category { get; set; }
+        public virtual ICollection<Sales> Sales { get; set; }
+
+
     }
 }

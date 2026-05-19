@@ -17,6 +17,7 @@ namespace BranchSalesAutomation.Models
         [Required]
         [MaxLength(100)]
         public string category_name { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 
 
