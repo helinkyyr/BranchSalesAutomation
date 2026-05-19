@@ -1,6 +1,6 @@
 ﻿namespace BranchSalesAutomation
 {
-    partial class Form1
+    partial class FormProduct
     {
         /// <summary>
         /// Required designer variable.
@@ -161,7 +161,7 @@
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // Form1
+            // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -172,8 +172,8 @@
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_list);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormProduct";
+            this.Text = "Ürün Yönetimi";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
             this.groupBox1.ResumeLayout(false);

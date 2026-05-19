@@ -40,6 +40,15 @@ namespace BranchSalesAutomation
 
                 combo_product.DisplayMember = "product_name";
                 combo_product.ValueMember = "product_id";
+                dgv_stock.ReadOnly = true;
+
+                dgv_stock.AllowUserToAddRows = false;
+
+                dgv_stock.AllowUserToDeleteRows = false;
+                dgv_stock.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+                dgv_stock.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
             }
             catch (Exception ex)
             {
@@ -81,9 +90,9 @@ namespace BranchSalesAutomation
                 dgv_stock.DataSource = db.Stocks.Select(x => new
                 {
                     x.stock_id,
-                    Şube = x.Branch.branch_name,
-                    Ürün = x.Product.product_name,
-                    Stok = x.quantity
+                    x.branch_id,
+                    x.product_id,
+                    x.quantity
                 }).ToList();
 
                 dgv_stock.Columns["stock_id"].Visible = false;

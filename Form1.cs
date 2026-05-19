@@ -13,10 +13,10 @@ using System.Linq;
 
 namespace BranchSalesAutomation
 {
-    public partial class Form1 : Form
+    public partial class FormProduct : Form
     {
         BranchSalesDbContext db = new BranchSalesDbContext();
-        public Form1()
+        public FormProduct()
         {
             InitializeComponent();
         }

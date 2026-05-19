@@ -51,11 +51,10 @@
             this.dgv_stock.Size = new System.Drawing.Size(1383, 345);
             this.dgv_stock.TabIndex = 0;
             this.dgv_stock.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stock_CellClick);
-              
             // 
             // btn_list
             // 
-            this.btn_list.Location = new System.Drawing.Point(902, 417);
+            this.btn_list.Location = new System.Drawing.Point(669, 433);
             this.btn_list.Name = "btn_list";
             this.btn_list.Size = new System.Drawing.Size(110, 42);
             this.btn_list.TabIndex = 1;
@@ -65,7 +64,7 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(1055, 417);
+            this.btn_add.Location = new System.Drawing.Point(822, 433);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(110, 42);
             this.btn_add.TabIndex = 2;
@@ -75,7 +74,7 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(1212, 417);
+            this.btn_delete.Location = new System.Drawing.Point(979, 433);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(110, 42);
             this.btn_delete.TabIndex = 3;
@@ -149,7 +148,7 @@
             this.Controls.Add(this.btn_list);
             this.Controls.Add(this.dgv_stock);
             this.Name = "FormStock";
-            this.Text = "FormStock";
+            this.Text = "Şube Stok Yönetimi";
             this.Load += new System.EventHandler(this.FormStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).EndInit();
             this.ResumeLayout(false);
