@@ -42,16 +42,17 @@
             // dgv_sales
             // 
             this.dgv_sales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_sales.Location = new System.Drawing.Point(3, 4);
+            this.dgv_sales.Location = new System.Drawing.Point(3, -2);
             this.dgv_sales.Name = "dgv_sales";
             this.dgv_sales.RowHeadersWidth = 51;
             this.dgv_sales.RowTemplate.Height = 24;
-            this.dgv_sales.Size = new System.Drawing.Size(1275, 359);
+            this.dgv_sales.Size = new System.Drawing.Size(1341, 359);
             this.dgv_sales.TabIndex = 0;
+            this.dgv_sales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_sales_CellContentClick);
             // 
             // btn_list
             // 
-            this.btn_list.Location = new System.Drawing.Point(632, 436);
+            this.btn_list.Location = new System.Drawing.Point(626, 412);
             this.btn_list.Name = "btn_list";
             this.btn_list.Size = new System.Drawing.Size(113, 41);
             this.btn_list.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(790, 436);
+            this.btn_add.Location = new System.Drawing.Point(784, 412);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(181, 41);
             this.btn_add.TabIndex = 2;
@@ -72,22 +73,22 @@
             // combo_stock
             // 
             this.combo_stock.FormattingEnabled = true;
-            this.combo_stock.Location = new System.Drawing.Point(168, 436);
+            this.combo_stock.Location = new System.Drawing.Point(177, 412);
             this.combo_stock.Name = "combo_stock";
-            this.combo_stock.Size = new System.Drawing.Size(205, 24);
+            this.combo_stock.Size = new System.Drawing.Size(296, 24);
             this.combo_stock.TabIndex = 3;
             // 
             // txt_quantity
             // 
-            this.txt_quantity.Location = new System.Drawing.Point(168, 475);
+            this.txt_quantity.Location = new System.Drawing.Point(177, 451);
             this.txt_quantity.Name = "txt_quantity";
-            this.txt_quantity.Size = new System.Drawing.Size(205, 22);
+            this.txt_quantity.Size = new System.Drawing.Size(296, 22);
             this.txt_quantity.TabIndex = 4;
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(72, 444);
+            this.Label1.Location = new System.Drawing.Point(81, 420);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(79, 16);
             this.Label1.TabIndex = 5;
@@ -96,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 475);
+            this.label2.Location = new System.Drawing.Point(75, 451);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 6;
@@ -105,7 +106,7 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(1013, 436);
+            this.btn_delete.Location = new System.Drawing.Point(1007, 412);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(115, 41);
             this.btn_delete.TabIndex = 7;
@@ -117,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1290, 573);
+            this.ClientSize = new System.Drawing.Size(1347, 512);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Label1);

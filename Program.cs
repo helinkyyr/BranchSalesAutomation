@@ -16,7 +16,7 @@ namespace BranchSalesAutomation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSales());
+            Application.Run(new FormMain());
         }
     }
 }

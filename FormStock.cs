@@ -90,19 +90,27 @@ namespace BranchSalesAutomation
                 dgv_stock.DataSource = db.Stocks.Select(x => new
                 {
                     x.stock_id,
-                    x.branch_id,
-                    x.product_id,
-                    x.quantity
+                    Şube = x.Branch.branch_name,
+                    Ürün = x.Product.product_name,
+                    Stok_Adedi = x.quantity
                 }).ToList();
 
                 dgv_stock.Columns["stock_id"].Visible = false;
 
                 dgv_stock.AutoSizeColumnsMode =
                     DataGridViewAutoSizeColumnsMode.Fill;
+
+                dgv_stock.ReadOnly = true;
+
+                dgv_stock.AllowUserToAddRows = false;
+                dgv_stock.AllowUserToDeleteRows = false;
+
+                dgv_stock.AllowUserToResizeColumns = false;
+                dgv_stock.AllowUserToResizeRows = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 

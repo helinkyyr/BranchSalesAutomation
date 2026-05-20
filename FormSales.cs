@@ -102,9 +102,11 @@ namespace BranchSalesAutomation
 
         private void btn_list_Click(object sender, EventArgs e)
         {
+
             dgv_sales.DataSource = db.Sales.Select(x => new
             {
                 İşlem_Sayısı = x.sale_id,
+
 
                 Şube = db.Stocks
             .Where(s => s.stock_id == x.stock_id)
@@ -133,12 +135,13 @@ namespace BranchSalesAutomation
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+
             try
             {
-                int id = Convert.ToInt32(
-                    dgv_sales.CurrentRow.Cells[0].Value);
+                int saleId = Convert.ToInt32(
+                    dgv_sales.CurrentRow.Cells["İşlem_Sayısı"].Value);
 
-                Sales sales = db.Sales.Find(id);
+                Sales sales = db.Sales.Find(saleId);
 
                 Stock stock = db.Stocks.Find(sales.stock_id);
 
@@ -156,6 +159,39 @@ namespace BranchSalesAutomation
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgv_sales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv_sales.DataSource = db.Sales.Select(x => new
+            {
+                x.stock_id,
+
+                Şube = db.Stocks
+    .Where(s => s.stock_id == x.stock_id)
+    .Select(s => db.Branches
+        .Where(b => b.branch_id == s.branch_id)
+        .Select(b => b.branch_name)
+        .FirstOrDefault())
+    .FirstOrDefault(),
+
+                Ürün = db.Stocks
+    .Where(s => s.stock_id == x.stock_id)
+    .Select(s => db.Products
+        .Where(p => p.product_id == s.product_id)
+        .Select(p => p.product_name)
+        .FirstOrDefault())
+    .FirstOrDefault(),
+
+                Satılan_Adet = x.quantity,
+
+                Satış_Tarihi = x.sale_date
+            }).ToList();
+
+            dgv_sales.Columns["stock_id"].Visible = false;
+
+            dgv_sales.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

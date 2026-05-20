@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BranchSalesAutomation.DatabaseContext;
 using BranchSalesAutomation.Models;
-using System.Linq;
 
 namespace BranchSalesAutomation
 {
@@ -44,7 +43,7 @@ namespace BranchSalesAutomation
 
                 MessageBox.Show("Ürün güncellendi");
 
-                dgv_product.DataSource = db.Products.ToList();
+                btn_list_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -64,26 +63,31 @@ namespace BranchSalesAutomation
             cmb_category.DataSource = db.Categories.ToList();
             cmb_category.DisplayMember = "category_name";
             cmb_category.ValueMember = "category_id";
+            btn_list_Click(sender, e);
         }
 
         private void btn_list_Click(object sender, EventArgs e)
         {
             try
             {
-                dgv_product.DataSource = db.Products.ToList();
-                dgv_product.DataSource = db.Products.ToList();
+                dgv_product.DataSource = db.Products.Select(x => new
+                {
+                    x.product_id,
+                    Ürün_Adı = x.product_name,
+                    Ürün_Fiyatı = x.product_price,
+                    Kategori = x.Category.category_name
+                }).ToList();
 
                 dgv_product.Columns["product_id"].Visible = false;
-                dgv_product.Columns["product_name"].HeaderText = "Ürün Adı";
-                dgv_product.Columns["product_price"].HeaderText = "Ürün Fiyatı";
-                dgv_product.Columns["category_id"].HeaderText = "Kategori";
-                dgv_product.Columns["category_id"].Width = 150;
 
-                dgv_product.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgv_product.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
 
                 dgv_product.ReadOnly = true;
+
                 dgv_product.AllowUserToAddRows = false;
                 dgv_product.AllowUserToDeleteRows = false;
+
                 dgv_product.AllowUserToResizeColumns = false;
                 dgv_product.AllowUserToResizeRows = false;
             }
@@ -110,7 +114,7 @@ namespace BranchSalesAutomation
 
                 MessageBox.Show("Ürün eklendi");
 
-                dgv_product.DataSource = db.Products.ToList();
+                btn_list_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -122,11 +126,11 @@ namespace BranchSalesAutomation
         {
             try
             {
-                textBox1.Text = dgv_product.CurrentRow.Cells["product_name"].Value.ToString();
+                textBox1.Text = dgv_product.CurrentRow.Cells["Ürün_Adı"].Value.ToString();
 
-                textBox2.Text = dgv_product.CurrentRow.Cells["product_price"].Value.ToString();
+                textBox2.Text = dgv_product.CurrentRow.Cells["Ürün_Fiyatı"].Value.ToString();
 
-                cmb_category.SelectedValue = dgv_product.CurrentRow.Cells["category_id"].Value;
+                cmb_category.Text = dgv_product.CurrentRow.Cells["Kategori"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -153,7 +157,7 @@ namespace BranchSalesAutomation
 
                 MessageBox.Show("Ürün silindi");
 
-                dgv_product.DataSource = db.Products.ToList();
+                btn_list_Click(sender, e);
             }
             catch (Exception ex)
             {
