@@ -54,7 +54,7 @@
             // 
             // btn_list
             // 
-            this.btn_list.Location = new System.Drawing.Point(669, 433);
+            this.btn_list.Location = new System.Drawing.Point(653, 403);
             this.btn_list.Name = "btn_list";
             this.btn_list.Size = new System.Drawing.Size(110, 42);
             this.btn_list.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(822, 433);
+            this.btn_add.Location = new System.Drawing.Point(806, 403);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(110, 42);
             this.btn_add.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(979, 433);
+            this.btn_delete.Location = new System.Drawing.Point(963, 403);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(110, 42);
             this.btn_delete.TabIndex = 3;
@@ -85,7 +85,7 @@
             // combo_branch
             // 
             this.combo_branch.FormattingEnabled = true;
-            this.combo_branch.Location = new System.Drawing.Point(177, 394);
+            this.combo_branch.Location = new System.Drawing.Point(184, 372);
             this.combo_branch.Name = "combo_branch";
             this.combo_branch.Size = new System.Drawing.Size(195, 24);
             this.combo_branch.TabIndex = 4;
@@ -93,7 +93,7 @@
             // combo_product
             // 
             this.combo_product.FormattingEnabled = true;
-            this.combo_product.Location = new System.Drawing.Point(177, 443);
+            this.combo_product.Location = new System.Drawing.Point(184, 421);
             this.combo_product.Name = "combo_product";
             this.combo_product.Size = new System.Drawing.Size(195, 24);
             this.combo_product.TabIndex = 5;
@@ -101,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 397);
+            this.label1.Location = new System.Drawing.Point(77, 375);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 16);
             this.label1.TabIndex = 6;
@@ -110,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 443);
+            this.label2.Location = new System.Drawing.Point(84, 421);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 7;
@@ -119,7 +119,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 493);
+            this.label3.Location = new System.Drawing.Point(84, 471);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             // txt_stock_quantity
             // 
-            this.txt_stock_quantity.Location = new System.Drawing.Point(177, 490);
+            this.txt_stock_quantity.Location = new System.Drawing.Point(184, 468);
             this.txt_stock_quantity.Name = "txt_stock_quantity";
             this.txt_stock_quantity.Size = new System.Drawing.Size(195, 22);
             this.txt_stock_quantity.TabIndex = 9;
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1395, 563);
+            this.ClientSize = new System.Drawing.Size(1395, 507);
             this.Controls.Add(this.txt_stock_quantity);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

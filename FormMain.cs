@@ -15,7 +15,13 @@ namespace BranchSalesAutomation
         public FormMain()
         {
             InitializeComponent();
+
+            this.Size = new Size(1400, 700);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
+        
 
         private void btn_product_Click(object sender, EventArgs e)
         {

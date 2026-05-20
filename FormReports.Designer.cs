@@ -110,7 +110,6 @@
             this.Controls.Add(this.dgv_reports);
             this.Name = "FormReports";
             this.Text = "Satış ve Stok Raporları";
-            this.Load += new System.EventHandler(this.FormReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reports)).EndInit();
             this.ResumeLayout(false);
 

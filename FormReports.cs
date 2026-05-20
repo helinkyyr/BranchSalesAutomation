@@ -18,12 +18,7 @@ namespace BranchSalesAutomation
         {
             InitializeComponent();
         }
-
-        private void FormReports_Load(object sender, EventArgs e)
-        {
-
-        }
-
+         
         private void btn_top_products_Click(object sender, EventArgs e)
         {
             try
@@ -93,7 +88,7 @@ namespace BranchSalesAutomation
             try
             {
                 dgv_reports.DataSource = db.Stocks
-                    .Where(x => x.quantity < 10)
+                    .Where(x => x.quantity < 20)
                     .Select(x => new
                     {
                         Şube = x.Branch.branch_name,
@@ -114,8 +109,20 @@ namespace BranchSalesAutomation
 
                 foreach (DataGridViewRow row in dgv_reports.Rows)
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                    row.DefaultCellStyle.ForeColor = Color.White;
+
+                    int stok =
+                        Convert.ToInt32(row.Cells["Kalan_Stok"].Value);
+
+                    if (stok < 10)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                        row.DefaultCellStyle.ForeColor = Color.White;
+                    }
+                    else if (stok < 20)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Orange;
+                        row.DefaultCellStyle.ForeColor = Color.Black;
+                    }
                 }
             }
             catch (Exception ex)
