@@ -1,19 +1,21 @@
-﻿using System;
+﻿using BranchSalesAutomation.DatabaseContext;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 
 
 namespace BranchSalesAutomation
 {
     public partial class FormMain : Form
     {
+        BranchSalesDbContext db = new BranchSalesDbContext();
         public FormMain()
         {
             InitializeComponent();
@@ -25,6 +27,13 @@ namespace BranchSalesAutomation
 
             MakePanelCircular(panel_icon_products);
 
+        }
+        public void DashboardData()
+        {
+            label13.Text =
+                db.Products.Count().ToString();
+            label14.Text =
+                db.Stocks.Sum(x => x.quantity).ToString();
         }
 
 
@@ -58,7 +67,11 @@ namespace BranchSalesAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
+            FormProduct frm = new FormProduct();
 
+            frm.Show();
+
+            this.Hide();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -156,67 +169,6 @@ namespace BranchSalesAutomation
 
             panel.Region = new Region(path);
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelStockIcon_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel_products_Paint(object sender, PaintEventArgs e)
         {
             GraphicsPath gp = new GraphicsPath();
@@ -313,12 +265,6 @@ namespace BranchSalesAutomation
         {
             panel6.BackColor = Color.White;
         }
-
-        private void panel_top_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panelAdmin_MouseEnter(object sender, EventArgs e)
         {
             panelAdmin.BackColor = Color.FromArgb(25, 40, 75);
@@ -327,6 +273,94 @@ namespace BranchSalesAutomation
         private void panelAdmin_MouseLeave(object sender, EventArgs e)
         {
             panelAdmin.BackColor = Color.FromArgb(20, 30, 60);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FormProduct frm = new FormProduct();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormStock frm = new FormStock();
+
+            frm.Show();
+
+            this.Hide();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FormStock frm = new FormStock();
+
+            frm.Show();
+
+            this.Hide();
+        }
+        private void MakePanelCircle(Panel pnl)
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddEllipse(0, 0, pnl.Width, pnl.Height);
+
+            pnl.Region = new Region(path);
+        }
+        private void FormMain_Load_1(object sender, EventArgs e)
+        {
+             DashboardData();
+            MakePanelCircle(panel_icon_products);
+
+            MakePanelCircle(panel2);
+
+            MakePanelCircle(panel5);
+
+            MakePanelCircle(panel17);
+            dgvLastProducts.DataSource = db.Products
+                .OrderByDescending(x => x.product_id) 
+                .Take(8)
+                .Select(x => new
+            {
+                 Ürün = x.product_name,
+                 Fiyat = x.product_price
+            })
+             .ToList();
+            dgvLastProducts.DefaultCellStyle.SelectionBackColor = Color.White;
+
+            dgvLastProducts.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvLastProducts.ClearSelection();
+            dgvLowStock.DataSource = db.Stocks
+              .Where(x => x.quantity <= 5)
+              .Select(x => new
+          {
+                 Ürün = x.Product.product_name,
+                 Stok = x.quantity,
+                 Şube = x.Branch.branch_name
+              })
+              .ToList();
+            dgvLowStock.DefaultCellStyle.SelectionBackColor = Color.White;
+
+            dgvLowStock.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvLowStock.ClearSelection();
+        }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            cmsSettings.Show(
+            pictureBox13,
+            0,
+            pictureBox13.Height
+            );
+        }
+
+        private void çıkışYapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

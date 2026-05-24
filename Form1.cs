@@ -61,13 +61,7 @@ namespace BranchSalesAutomation
                     db.Products.Add(product);
 
                     MessageBox.Show("Ürün eklendi");
-                    groupBox1.Visible = false;
-                    isEditMode = false;
-                    textBox1.Clear();
-
-                    textBox2.Clear();
-
-                    cmb_category.SelectedIndex = -1;
+                     
                 }
                 else
                 {
@@ -325,6 +319,7 @@ namespace BranchSalesAutomation
             cmb_category.SelectedIndex = -1;
 
             textBox1.Focus();
+            groupBox1.Text = "Ürün Ekle";
         }
         private void dgv_product_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -365,12 +360,6 @@ namespace BranchSalesAutomation
         {
             dragging = false;
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
@@ -378,6 +367,14 @@ namespace BranchSalesAutomation
             isEditMode = false;
 
             selectedProductId = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.FormMain.DashboardData();
+            Program.FormMain.Show();
+
+            this.Close();
         }
     }
     

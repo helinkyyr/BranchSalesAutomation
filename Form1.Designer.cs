@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.dgv_product = new System.Windows.Forms.DataGridView();
             this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_category = new System.Windows.Forms.ComboBox();
@@ -61,7 +62,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panelTop.SuspendLayout();
@@ -81,36 +81,36 @@
             this.dgv_product.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_product.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_product.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_product.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_product.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_product.ColumnHeadersHeight = 50;
             this.dgv_product.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_product.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDelete,
             this.colEdit});
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_product.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_product.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_product.EnableHeadersVisualStyles = false;
             this.dgv_product.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.dgv_product.Location = new System.Drawing.Point(253, 120);
+            this.dgv_product.Location = new System.Drawing.Point(250, 120);
             this.dgv_product.Name = "dgv_product";
             this.dgv_product.ReadOnly = true;
             this.dgv_product.RowHeadersVisible = false;
             this.dgv_product.RowHeadersWidth = 51;
             this.dgv_product.RowTemplate.Height = 44;
-            this.dgv_product.Size = new System.Drawing.Size(1443, 589);
+            this.dgv_product.Size = new System.Drawing.Size(1329, 794);
             this.dgv_product.TabIndex = 0;
             this.dgv_product.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellClick);
             this.dgv_product.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_product_CellContentClick);
@@ -152,7 +152,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Ekleme";
             this.groupBox1.Visible = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.Red;
+            this.button6.Location = new System.Drawing.Point(362, 139);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(25, 32);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "x";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -231,7 +244,7 @@
             this.btn_list.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_list.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_list.ForeColor = System.Drawing.Color.White;
-            this.btn_list.Location = new System.Drawing.Point(1243, 31);
+            this.btn_list.Location = new System.Drawing.Point(1122, 31);
             this.btn_list.Name = "btn_list";
             this.btn_list.Size = new System.Drawing.Size(126, 44);
             this.btn_list.TabIndex = 2;
@@ -247,7 +260,7 @@
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Location = new System.Drawing.Point(1039, 31);
+            this.btn_add.Location = new System.Drawing.Point(918, 31);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(176, 44);
             this.btn_add.TabIndex = 3;
@@ -264,9 +277,9 @@
             this.panelTop.Controls.Add(this.label3);
             this.panelTop.Controls.Add(this.btn_list);
             this.panelTop.Controls.Add(this.label2);
-            this.panelTop.Location = new System.Drawing.Point(246, 3);
+            this.panelTop.Location = new System.Drawing.Point(250, 3);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1456, 120);
+            this.panelTop.Size = new System.Drawing.Size(1335, 120);
             this.panelTop.TabIndex = 6;
             // 
             // label3
@@ -300,14 +313,14 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1699, 746);
+            this.panelContainer.Size = new System.Drawing.Size(1582, 977);
             this.panelContainer.TabIndex = 7;
             // 
             // lblTotalRecord
             // 
             this.lblTotalRecord.AutoSize = true;
             this.lblTotalRecord.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTotalRecord.Location = new System.Drawing.Point(273, 714);
+            this.lblTotalRecord.Location = new System.Drawing.Point(266, 928);
             this.lblTotalRecord.Name = "lblTotalRecord";
             this.lblTotalRecord.Size = new System.Drawing.Size(0, 23);
             this.lblTotalRecord.TabIndex = 7;
@@ -326,7 +339,7 @@
             this.panel_sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_sidebar.Location = new System.Drawing.Point(0, 0);
             this.panel_sidebar.Name = "panel_sidebar";
-            this.panel_sidebar.Size = new System.Drawing.Size(247, 746);
+            this.panel_sidebar.Size = new System.Drawing.Size(244, 977);
             this.panel_sidebar.TabIndex = 8;
             // 
             // panelAdmin
@@ -335,7 +348,7 @@
             this.panelAdmin.Controls.Add(this.label28);
             this.panelAdmin.Controls.Add(this.label27);
             this.panelAdmin.Controls.Add(this.panelAdminIkon);
-            this.panelAdmin.Location = new System.Drawing.Point(24, 633);
+            this.panelAdmin.Location = new System.Drawing.Point(12, 886);
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(220, 80);
             this.panelAdmin.TabIndex = 2;
@@ -472,6 +485,7 @@
             this.button1.Text = "Ana Sayfa";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -493,31 +507,19 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(362, 139);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(25, 32);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "x";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1699, 746);
+            this.ClientSize = new System.Drawing.Size(1582, 977);
             this.Controls.Add(this.panel_sidebar);
             this.Controls.Add(this.panelContainer);
+            this.MaximizeBox = false;
             this.Name = "FormProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ürün Yönetimi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_product)).EndInit();
             this.groupBox1.ResumeLayout(false);
