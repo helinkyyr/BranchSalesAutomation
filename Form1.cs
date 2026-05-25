@@ -376,6 +376,33 @@ namespace BranchSalesAutomation
 
             this.Close();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            FormStock frm = new FormStock();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FormSales frm = new FormSales();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormReports frm = new FormReports();
+
+            frm.Show();
+
+            this.Hide();
+        }
     }
     
 }

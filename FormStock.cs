@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 
 namespace BranchSalesAutomation
@@ -49,6 +50,40 @@ namespace BranchSalesAutomation
 
                 dgv_stock.SelectionMode =
                     DataGridViewSelectionMode.FullRowSelect;
+                dgv_stock.DataSource = db.Stocks
+                   .Select(x => new
+                     {
+                     Ürün = x.Product.product_name,
+                     Şube = x.Branch.branch_name,
+                     Stok = x.quantity
+                     })
+                   .ToList();
+                dgv_stock.RowHeadersVisible = false;
+
+                dgv_stock.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+                dgv_stock.MultiSelect = false;
+
+                dgv_stock.DefaultCellStyle.SelectionBackColor = Color.White;
+
+                dgv_stock.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+                dgv_stock.ClearSelection();
+                dgv_stock.DefaultCellStyle.SelectionBackColor = Color.White;
+
+                dgv_stock.DefaultCellStyle.SelectionForeColor = Color.Black;
+                txt_search.Text = "Arama yapın...";
+                txt_search.ForeColor = Color.Gray;
+                RoundPanel(panelAddStock, 20);
+                dgv_stock.DataSource = db.Stocks
+                 .Select(x => new
+                 {
+                   Ürün = x.Product.product_name,
+                   Şube = x.Branch.branch_name,
+                   Stok = x.quantity
+                 })
+                  .ToList();
             }
             catch (Exception ex)
             {
@@ -76,6 +111,15 @@ namespace BranchSalesAutomation
                 MessageBox.Show("Stok eklendi!");
 
                 btn_list.PerformClick();
+                dgv_stock.DataSource = db.Stocks
+                .Select(x => new
+                {
+                    Ürün = x.Product.product_name,
+                    Şube = x.Branch.branch_name,
+                    Stok = x.quantity
+                })
+                .ToList();
+                dgv_stock.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -134,9 +178,12 @@ namespace BranchSalesAutomation
 
                         db.SaveChanges();
 
+                        Program.FormMain.DashboardData();
+
                         MessageBox.Show("Stok silindi!");
 
                         btn_list.PerformClick();
+
                     }
                 }
             }
@@ -150,6 +197,99 @@ namespace BranchSalesAutomation
         {
             selectedStockId = Convert.ToInt32(
             dgv_stock.CurrentRow.Cells["stock_id"].Value);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            dgv_stock.DataSource = db.Stocks
+             .Where(x => x.Product.product_name
+             .Contains(txt_search.Text))
+             .Select(x => new
+          {
+             Ürün = x.Product.product_name,
+             Şube = x.Branch.branch_name,
+             Stok = x.quantity
+          })
+             .ToList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormMain frm = new FormMain();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormProduct frm = new FormProduct();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FormSales frm = new FormSales();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormReports frm = new FormReports();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void dgv_stock_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+        }
+
+        private void txt_search_MouseEnter(object sender, EventArgs e)
+        {
+            if (txt_search.Text == "Arama yapın...")
+            {
+                txt_search.Text = "";
+                txt_search.ForeColor = Color.Black;
+            }
+        }
+
+        private void txt_search_MouseLeave(object sender, EventArgs e)
+        {
+            if (txt_search.Text == "")
+            {
+                txt_search.Text = "Arama yapın...";
+                txt_search.ForeColor = Color.Gray;
+            }
+        }
+        private void RoundPanel(Panel panel, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+
+            path.StartFigure();
+
+            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
+            path.AddArc(new Rectangle(panel.Width - radius, 0, radius, radius), 270, 90);
+            path.AddArc(new Rectangle(panel.Width - radius, panel.Height - radius, radius, radius), 0, 90);
+            path.AddArc(new Rectangle(0, panel.Height - radius, radius, radius), 90, 90);
+
+            path.CloseFigure();
+
+            panel.Region = new Region(path);
         }
     }
 }

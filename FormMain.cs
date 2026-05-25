@@ -34,7 +34,16 @@ namespace BranchSalesAutomation
                 db.Products.Count().ToString();
             label14.Text =
                 db.Stocks.Sum(x => x.quantity).ToString();
-        }
+            dgvLowStock.DataSource = db.Stocks
+            .Where(x => x.quantity <= 5)
+            .Select(x => new
+            {
+                Ürün = x.Product.product_name,
+                Şube = x.Branch.branch_name,
+                Stok = x.quantity
+            })
+            .ToList();
+                }
 
 
         private void btn_product_Click(object sender, EventArgs e)
@@ -361,6 +370,42 @@ namespace BranchSalesAutomation
         private void çıkışYapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FormStock frm = new FormStock();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FormSales frm = new FormSales();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FormReports frm = new FormReports();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormReports frm = new FormReports();
+
+            frm.Show();
+
+            this.Hide();
         }
     }
 }
