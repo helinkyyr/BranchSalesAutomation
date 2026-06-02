@@ -14,6 +14,7 @@ namespace BranchSalesAutomation
 {
     public partial class FormSales : Form
     {
+
         BranchSalesDbContext db = new BranchSalesDbContext();
         public FormSales()
         {
@@ -27,6 +28,7 @@ namespace BranchSalesAutomation
 
         private void FormSales_Load(object sender, EventArgs e)
         {
+          
             combo_stock.DataSource = db.Stocks
         .Select(x => new
         {
@@ -55,143 +57,268 @@ namespace BranchSalesAutomation
 
             dgv_sales.EditMode =
         DataGridViewEditMode.EditProgrammatically;
+
+            dgv_sales.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            dgv_sales.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgv_sales.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 11, FontStyle.Bold);
+
+            dgv_sales.ColumnHeadersHeight = 40;
+
+            dgv_sales.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgv_sales.RowTemplate.Height = 35;
+
+            dgv_sales.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(245, 245, 245);
+
+            dgv_sales.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+            dgv_sales.BorderStyle = BorderStyle.None;
+
+            dgv_sales.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgv_sales.GridColor =
+                Color.FromArgb(235, 235, 235);
+
+            dgv_sales.BackgroundColor = Color.White;
+
+            dgv_sales.RowHeadersVisible = false;
+
+            dgv_sales.EnableHeadersVisualStyles = false;
+
+            dgv_sales.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.White;
+            dgv_sales.AutoGenerateColumns = false;
+
+            dgv_sales.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.Black;
+
+            dgv_sales.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI Semibold", 11);
+
+            dgv_sales.ColumnHeadersHeight = 40;
+
+            dgv_sales.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgv_sales.RowTemplate.Height = 35;
+
+            dgv_sales.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(245, 245, 245);
+
+            dgv_sales.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+            dgv_sales.AutoGenerateColumns = false;
+
+            dgv_sales.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(249, 249, 249);
+            dgv_sales.Columns.Clear();
+
+            dgv_sales.Columns.Add("Şube", "Şube");
+            dgv_sales.Columns.Add("Ürün", "Ürün");
+            dgv_sales.Columns.Add("Satılan_Adet", "Satılan Adet");
+            dgv_sales.Columns.Add("Satış_Tarihi", "Satış Tarihi");
+
+            dgv_sales.Columns["Şube"].DataPropertyName = "Şube";
+            dgv_sales.Columns["Ürün"].DataPropertyName = "Ürün";
+            dgv_sales.Columns["Satılan_Adet"].DataPropertyName = "Satılan_Adet";
+            dgv_sales.Columns["Satış_Tarihi"].DataPropertyName = "Satış_Tarihi";
+            LoadSales();
+            LoadStockCombo();
+            GetTotalSales();
+            GetTotalRevenue();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int stockId = Convert.ToInt32(combo_stock.SelectedValue);
-               
+                int stockId =
+         Convert.ToInt32(combo_stock.SelectedValue);
 
-                int salesQuantity = Convert.ToInt32(txt_quantity.Text);
-
-                Stock stock = db.Stocks.Find(stockId);
-
-                if (stock.quantity < salesQuantity)
+                if (string.IsNullOrWhiteSpace(txt_quantity.Text))
                 {
-                    MessageBox.Show("Yetersiz stok!");
-
+                    MessageBox.Show("Miktar giriniz");
                     return;
                 }
 
-                Sales sales = new Sales()
+                int quantity;
+
+                if (!int.TryParse(txt_quantity.Text, out quantity))
                 {
-                    stock_id = stockId,
-                    quantity = salesQuantity,
-                    sale_date = DateTime.Now ,
-                    country_id = 1
-                };
-                 
-                db.Sales.Add(sales);
+                    MessageBox.Show("Geçerli sayı giriniz");
+                    return;
+                }
 
-                stock.quantity -= salesQuantity;
+                var stock = db.Stocks
+                    .FirstOrDefault(x => x.stock_id == stockId);
 
+                if (stock == null)
+                {
+                    MessageBox.Show("Stok bulunamadı");
+                    return;
+                }
+
+                if (stock.quantity < quantity)
+                {
+                    MessageBox.Show("Yetersiz stok");
+                    return;
+                }
+
+                Sales sale = new Sales();
+
+                sale.stock_id = stockId;
+                sale.quantity = quantity;
+                sale.sale_date = DateTime.Now;
+                var product = db.Products.Find(stock.product_id);
+
+                sale.unit_price = product.product_price;
+                sale.total = quantity * product.product_price;
+                db.Sales.Add(sale);
+
+                stock.quantity -= quantity;
 
                 db.SaveChanges();
+            FormMain mainForm =
+            Application.OpenForms["FormMain"] as FormMain;
 
-                MessageBox.Show("Satış kaydedildi!");
-
-                btn_list.PerformClick();
-            }
-            catch (Exception ex)
+            if (mainForm != null)
             {
-                MessageBox.Show(ex.ToString());
+                mainForm.RefreshDashboard();
             }
+
+            MessageBox.Show("Satış kaydedildi");
+                LoadSales();
+
+                dgv_sales.Refresh();
+            LoadSales();
+                LoadStockCombo();
+                GetTotalSales();
+                GetTotalRevenue();
+
+            txt_quantity.Clear();
         }
 
         private void btn_list_Click(object sender, EventArgs e)
         {
-
-            dgv_sales.DataSource = db.Sales.Select(x => new
-            {
-                İşlem_Sayısı = x.sale_id,
-
-
-                Şube = db.Stocks
-            .Where(s => s.stock_id == x.stock_id)
-            .Select(s => db.Branches
-                .Where(b => b.branch_id == s.branch_id)
-                .Select(b => b.branch_name)
-                .FirstOrDefault())
-            .FirstOrDefault(),
-
-                Ürün = db.Stocks
-            .Where(s => s.stock_id == x.stock_id)
-            .Select(s => db.Products
-                .Where(p => p.product_id == s.product_id)
-                .Select(p => p.product_name)
-                .FirstOrDefault())
-            .FirstOrDefault(),
-
-                Satılan_Adet = x.quantity,
-
-                Satış_Tarihi = x.sale_date
-            }).ToList();
-
-            dgv_sales.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                int saleId = Convert.ToInt32(
-                    dgv_sales.CurrentRow.Cells["İşlem_Sayısı"].Value);
-
-                Sales sales = db.Sales.Find(saleId);
-
-                Stock stock = db.Stocks.Find(sales.stock_id);
-
-                stock.quantity += sales.quantity;
-
-                db.Sales.Remove(sales);
-
-                db.SaveChanges();
-
-                MessageBox.Show("İade işlemi yapıldı");
-
-                btn_list.PerformClick();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            LoadSales();
         }
 
         private void dgv_sales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        { 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            dgv_sales.DataSource = db.Sales.Select(x => new
+            FormProduct frm = new FormProduct();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormStock frm = new FormStock();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormReports frm = new FormReports();
+
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.FormMain.DashboardData();
+            Program.FormMain.Show();
+
+            this.Close();
+        }
+    
+       void LoadSales()
+        {
+
+            dgv_sales.DataSource = db.Sales
+                .Where(x => x.stock_id != 10)
+                .Select(x => new
+         {
+             sale_id = x.sale_id,
+
+             Şube = db.Stocks
+                 .Where(s => s.stock_id == x.stock_id)
+                 .Select(s => s.Branch.branch_name)
+                 .FirstOrDefault(),
+
+             Ürün = db.Stocks
+                 .Where(s => s.stock_id == x.stock_id)
+                 .Select(s => s.Product.product_name)
+                 .FirstOrDefault(),
+
+             Satılan_Adet = x.quantity,
+
+             Satış_Tarihi = x.sale_date
+
+
+         })
+         .ToList();
+            if (dgv_sales.Columns["sale_id"] != null)
             {
-                x.stock_id,
+                dgv_sales.Columns["sale_id"].Visible = false;
+            }
 
-                Şube = db.Stocks
-    .Where(s => s.stock_id == x.stock_id)
-    .Select(s => db.Branches
-        .Where(b => b.branch_id == s.branch_id)
-        .Select(b => b.branch_name)
-        .FirstOrDefault())
-    .FirstOrDefault(),
-
-                Ürün = db.Stocks
-    .Where(s => s.stock_id == x.stock_id)
-    .Select(s => db.Products
-        .Where(p => p.product_id == s.product_id)
-        .Select(p => p.product_name)
-        .FirstOrDefault())
-    .FirstOrDefault(),
-
-                Satılan_Adet = x.quantity,
-
-                Satış_Tarihi = x.sale_date
-            }).ToList();
-
-            dgv_sales.Columns["stock_id"].Visible = false;
-
+          
             dgv_sales.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        void LoadStockCombo()
+        {
+            combo_stock.DataSource = db.Stocks
+                .Select(x => new
+                {
+                    x.stock_id,
+                    Text = x.Product.product_name + " - Stok: " + x.quantity
+                })
+                .ToList();
+
+            combo_stock.DisplayMember = "Text";
+
+            combo_stock.ValueMember = "stock_id";
+        }
+
+        void GetTotalSales()
+        {
+            lblTotalSales.Text =
+                db.Sales.Count().ToString();
+        }
+
+        void GetTotalRevenue()
+        {
+            decimal total = db.Sales
+        .Sum(x => (decimal?)x.quantity * 100) ?? 0;
+
+            lblTotalCiro.Text =
+                total.ToString("N0") + " ₺";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dgv_sales.DataSource = null;
+
+            LoadSales();
+
+            dgv_sales.Refresh();
+
+            MessageBox.Show("Liste yenilendi");
         }
     }
 }

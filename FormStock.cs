@@ -52,11 +52,12 @@ namespace BranchSalesAutomation
                     DataGridViewSelectionMode.FullRowSelect;
                 dgv_stock.DataSource = db.Stocks
                    .Select(x => new
-                     {
-                     Ürün = x.Product.product_name,
-                     Şube = x.Branch.branch_name,
-                     Stok = x.quantity
-                     })
+                   {
+                       x.stock_id,
+                       Ürün = x.Product.product_name,
+                       Şube = x.Branch.branch_name,
+                       Stok = x.quantity
+                   })
                    .ToList();
                 dgv_stock.RowHeadersVisible = false;
 
@@ -79,11 +80,83 @@ namespace BranchSalesAutomation
                 dgv_stock.DataSource = db.Stocks
                  .Select(x => new
                  {
-                   Ürün = x.Product.product_name,
-                   Şube = x.Branch.branch_name,
-                   Stok = x.quantity
+                     x.stock_id,
+                     Ürün = x.Product.product_name,
+                     Şube = x.Branch.branch_name,
+                     Stok = x.quantity
                  })
                   .ToList();
+                dgv_stock.Columns["stock_id"].Visible = false;
+
+                dgv_stock.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+
+                dgv_stock.RowTemplate.Height = 35;
+
+                dgv_stock.ColumnHeadersHeight = 40;
+
+                dgv_stock.EnableHeadersVisualStyles = false;
+
+                dgv_stock.ColumnHeadersDefaultCellStyle.BackColor =
+                    Color.White;
+
+                dgv_stock.ColumnHeadersDefaultCellStyle.ForeColor =
+                    Color.Black;
+
+                dgv_stock.ColumnHeadersDefaultCellStyle.Font =
+                    new Font("Segoe UI", 10, FontStyle.Bold);
+
+                dgv_stock.DefaultCellStyle.Font =
+                    new Font("Segoe UI", 10);
+
+                dgv_stock.DefaultCellStyle.SelectionBackColor =
+                    Color.FromArgb(240, 240, 240);
+
+                dgv_stock.DefaultCellStyle.SelectionForeColor =
+                    Color.Black;
+
+                dgv_stock.BorderStyle = BorderStyle.None;
+
+                dgv_stock.CellBorderStyle =
+                    DataGridViewCellBorderStyle.SingleHorizontal;
+
+                dgv_stock.BackgroundColor = Color.White;
+
+                dgv_stock.Columns["DeleteIcon"].FillWeight = 20;
+
+                dgv_stock.Columns["EditIcon"].FillWeight = 25;
+
+                dgv_stock.Columns["Stok"].FillWeight = 30;
+
+                dgv_stock.Columns["DeleteIcon"].DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+
+                dgv_stock.Columns["EditIcon"].DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+
+                dgv_stock.Columns["Stok"].DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+
+                dgv_stock.Columns["DeleteIcon"].HeaderText =
+                    "Sil";
+
+                dgv_stock.Columns["EditIcon"].HeaderText =
+                    "Düzenle";
+                dgv_stock.Columns["Ürün"].DisplayIndex = 0;
+
+                dgv_stock.Columns["Şube"].DisplayIndex = 1;
+
+                dgv_stock.Columns["Stok"].DisplayIndex = 2;
+
+                dgv_stock.Columns["DeleteIcon"].DisplayIndex = 3;
+
+                dgv_stock.Columns["EditIcon"].DisplayIndex = 4;
+                dgv_stock.Columns["DeleteIcon"].FillWeight = 20;
+
+                dgv_stock.Columns["EditIcon"].FillWeight = 25;
+
+                dgv_stock.Columns["Stok"].FillWeight = 25;
+              
             }
             catch (Exception ex)
             {
@@ -114,6 +187,7 @@ namespace BranchSalesAutomation
                 dgv_stock.DataSource = db.Stocks
                 .Select(x => new
                 {
+                    x.stock_id,
                     Ürün = x.Product.product_name,
                     Şube = x.Branch.branch_name,
                     Stok = x.quantity
@@ -174,9 +248,28 @@ namespace BranchSalesAutomation
 
                     if (stock != null)
                     {
-                        db.Stocks.Remove(stock);
+                        result = MessageBox.Show(
+                        "Bu stoğu silmek istediğinize emin misiniz?",
+                             "Silme Onayı",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
 
-                        db.SaveChanges();
+                        if (result == DialogResult.Yes)
+                        {
+                            db.Stocks.Remove(stock);
+
+                            db.SaveChanges();
+
+                            dgv_stock.DataSource = db.Stocks
+                                .Select(x => new
+                                {
+                                    x.stock_id,
+                                    Ürün = x.Product.product_name,
+                                    Şube = x.Branch.branch_name,
+                                    Stok = x.quantity
+                                })
+                                .ToList();
+                        }
 
                         Program.FormMain.DashboardData();
 
@@ -206,16 +299,33 @@ namespace BranchSalesAutomation
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            dgv_stock.DataSource = db.Stocks
-             .Where(x => x.Product.product_name
-             .Contains(txt_search.Text))
-             .Select(x => new
-          {
-             Ürün = x.Product.product_name,
-             Şube = x.Branch.branch_name,
-             Stok = x.quantity
-          })
-             .ToList();
+            if (txt_search.Text == "Arama yapın..." ||
+                txt_search.Text == "")
+            {
+                dgv_stock.DataSource = db.Stocks
+                    .Select(x => new
+                    {
+                        x.stock_id,
+                        Ürün = x.Product.product_name,
+                        Şube = x.Branch.branch_name,
+                        Stok = x.quantity
+                    })
+                    .ToList();
+            }
+            else
+            {
+                dgv_stock.DataSource = db.Stocks
+                    .Where(x => x.Product.product_name
+                    .Contains(txt_search.Text))
+                    .Select(x => new
+                    {
+                        x.stock_id,
+                        Ürün = x.Product.product_name,
+                        Şube = x.Branch.branch_name,
+                        Stok = x.quantity
+                    })
+                    .ToList();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -256,7 +366,23 @@ namespace BranchSalesAutomation
 
         private void dgv_stock_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (dgv_stock.Columns[e.ColumnIndex].Name == "Stok")
+            {
+                int stock = Convert.ToInt32(e.Value);
 
+                if (stock <= 5)
+                {
+                    dgv_stock.Rows[e.RowIndex]
+                        .DefaultCellStyle.BackColor =
+                        Color.FromArgb(255, 230, 230);
+                }
+                else if (stock <= 10)
+                {
+                    dgv_stock.Rows[e.RowIndex]
+                        .DefaultCellStyle.BackColor =
+                        Color.FromArgb(255, 248, 220);
+                }
+            }
         }
 
         private void txt_search_MouseEnter(object sender, EventArgs e)
@@ -290,6 +416,57 @@ namespace BranchSalesAutomation
             path.CloseFigure();
 
             panel.Region = new Region(path);
+        }
+        private void dgv_stock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_stock.Columns[e.ColumnIndex].Name == "DeleteIcon")
+            {
+                DialogResult cevap = MessageBox.Show(
+                    "Silmek istediğinize emin misiniz?",
+                    "Stok Sil",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (cevap == DialogResult.Yes)
+                {
+                    int stockId = Convert.ToInt32(
+                        dgv_stock.Rows[e.RowIndex].Cells["stock_id"].Value);
+
+                    var stock = db.Stocks.Find(stockId);
+
+                    if (stock != null)
+                    {
+                        db.Stocks.Remove(stock);
+
+                        db.SaveChanges();
+
+                        dgv_stock.DataSource = db.Stocks
+                            .Select(x => new
+                            {
+                                x.stock_id,
+                                Ürün = x.Product.product_name,
+                                Şube = x.Branch.branch_name,
+                                Stok = x.quantity
+                            })
+                            .ToList();
+
+                    }
+                }
+            }
+            if (dgv_stock.Columns[e.ColumnIndex].Name == "EditIcon")
+            {
+                combo_branch.Text =
+                    dgv_stock.Rows[e.RowIndex].Cells["Şube"].Value.ToString();
+
+                combo_product.Text =
+                    dgv_stock.Rows[e.RowIndex].Cells["Ürün"].Value.ToString();
+
+                txt_stock_quantity.Text =
+                    dgv_stock.Rows[e.RowIndex].Cells["Stok"].Value.ToString();
+
+                selectedStockId = Convert.ToInt32(
+                    dgv_stock.Rows[e.RowIndex].Cells["stock_id"].Value);
+            }
         }
     }
 }

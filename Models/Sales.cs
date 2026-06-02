@@ -16,10 +16,15 @@ namespace BranchSalesAutomation.Models
 
         public int stock_id { get; set; }
 
-        public int country_id { get; set; }
-
         public int quantity { get; set; }
 
         public DateTime sale_date { get; set; }
+
+        public decimal unit_price { get; set; }
+
+        public decimal total { get; set; }
+
+        [ForeignKey("stock_id")]
+        public virtual Stock Stock { get; set; }
     }
 }

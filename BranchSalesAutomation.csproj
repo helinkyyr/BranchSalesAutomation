@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,6 +88,15 @@
     <Compile Include="FormStock.Designer.cs">
       <DependentUpon>FormStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202606020812550_AddPriceColumnsToSales.cs" />
+    <Compile Include="Migrations\202606020812550_AddPriceColumnsToSales.Designer.cs">
+      <DependentUpon>202606020812550_AddPriceColumnsToSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202606021058462_RemoveCountryRelation.cs" />
+    <Compile Include="Migrations\202606021058462_RemoveCountryRelation.Designer.cs">
+      <DependentUpon>202606021058462_RemoveCountryRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Country.cs" />
@@ -109,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStock.resx">
       <DependentUpon>FormStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202606020812550_AddPriceColumnsToSales.resx">
+      <DependentUpon>202606020812550_AddPriceColumnsToSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202606021058462_RemoveCountryRelation.resx">
+      <DependentUpon>202606021058462_RemoveCountryRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

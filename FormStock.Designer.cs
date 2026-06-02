@@ -43,6 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.combo_product = new System.Windows.Forms.ComboBox();
             this.panel_sidebar = new System.Windows.Forms.Panel();
+            this.panelAdmin = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panelAdminIkon = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,20 +55,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_search = new System.Windows.Forms.TextBox();
             this.panelAddStock = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.panelAdmin = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.panelAdminIkon = new System.Windows.Forms.Panel();
+            this.DeleteIcon = new System.Windows.Forms.DataGridViewImageColumn();
+            this.EditIcon = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).BeginInit();
             this.panel_sidebar.SuspendLayout();
+            this.panelAdmin.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelAddStock.SuspendLayout();
-            this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_stock
@@ -89,6 +91,9 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_stock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_stock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_stock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DeleteIcon,
+            this.EditIcon});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -106,16 +111,18 @@
             this.dgv_stock.RowHeadersWidth = 51;
             this.dgv_stock.RowTemplate.Height = 35;
             this.dgv_stock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_stock.Size = new System.Drawing.Size(1440, 602);
+            this.dgv_stock.Size = new System.Drawing.Size(1440, 638);
             this.dgv_stock.TabIndex = 0;
+            this.dgv_stock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stock_CellContentClick);
+            this.dgv_stock.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_stock_CellFormatting);
             // 
             // btn_list
             // 
             this.btn_list.BackColor = System.Drawing.Color.White;
             this.btn_list.ForeColor = System.Drawing.Color.Black;
-            this.btn_list.Location = new System.Drawing.Point(947, 955);
+            this.btn_list.Location = new System.Drawing.Point(951, 955);
             this.btn_list.Name = "btn_list";
-            this.btn_list.Size = new System.Drawing.Size(163, 17);
+            this.btn_list.Size = new System.Drawing.Size(159, 17);
             this.btn_list.TabIndex = 1;
             this.btn_list.Text = "LİSTELE";
             this.btn_list.UseVisualStyleBackColor = false;
@@ -124,9 +131,9 @@
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(778, 955);
+            this.btn_delete.Location = new System.Drawing.Point(782, 955);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(163, 17);
+            this.btn_delete.Size = new System.Drawing.Size(159, 17);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "SİL";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -219,6 +226,49 @@
             this.panel_sidebar.Name = "panel_sidebar";
             this.panel_sidebar.Size = new System.Drawing.Size(244, 984);
             this.panel_sidebar.TabIndex = 10;
+            // 
+            // panelAdmin
+            // 
+            this.panelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
+            this.panelAdmin.Controls.Add(this.label28);
+            this.panelAdmin.Controls.Add(this.label27);
+            this.panelAdmin.Controls.Add(this.panelAdminIkon);
+            this.panelAdmin.Location = new System.Drawing.Point(12, 873);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(220, 80);
+            this.panelAdmin.TabIndex = 10;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(220)))));
+            this.label28.Location = new System.Drawing.Point(70, 42);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(109, 19);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Sistem Yöneticisi";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(70, 18);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(108, 25);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Helin Kayar";
+            // 
+            // panelAdminIkon
+            // 
+            this.panelAdminIkon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(66)))), ((int)(((byte)(255)))));
+            this.panelAdminIkon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelAdminIkon.BackgroundImage")));
+            this.panelAdminIkon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelAdminIkon.Location = new System.Drawing.Point(13, 17);
+            this.panelAdminIkon.Name = "panelAdminIkon";
+            this.panelAdminIkon.Size = new System.Drawing.Size(44, 44);
+            this.panelAdminIkon.TabIndex = 0;
             // 
             // button9
             // 
@@ -358,6 +408,18 @@
             this.panelTop.Size = new System.Drawing.Size(1443, 120);
             this.panelTop.TabIndex = 11;
             // 
+            // txt_search
+            // 
+            this.txt_search.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.txt_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_search.Location = new System.Drawing.Point(1141, 55);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(293, 30);
+            this.txt_search.TabIndex = 2;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
+            this.txt_search.MouseEnter += new System.EventHandler(this.txt_search_MouseEnter);
+            this.txt_search.MouseLeave += new System.EventHandler(this.txt_search_MouseLeave);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -380,18 +442,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Stok";
             // 
-            // txt_search
-            // 
-            this.txt_search.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txt_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_search.Location = new System.Drawing.Point(1141, 55);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(293, 30);
-            this.txt_search.TabIndex = 2;
-            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
-            this.txt_search.MouseEnter += new System.EventHandler(this.txt_search_MouseEnter);
-            this.txt_search.MouseLeave += new System.EventHandler(this.txt_search_MouseLeave);
-            // 
             // panelAddStock
             // 
             this.panelAddStock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -405,7 +455,7 @@
             this.panelAddStock.Controls.Add(this.label2);
             this.panelAddStock.Controls.Add(this.txt_stock_quantity);
             this.panelAddStock.Controls.Add(this.label3);
-            this.panelAddStock.Location = new System.Drawing.Point(317, 746);
+            this.panelAddStock.Location = new System.Drawing.Point(293, 765);
             this.panelAddStock.Name = "panelAddStock";
             this.panelAddStock.Size = new System.Drawing.Size(1317, 188);
             this.panelAddStock.TabIndex = 12;
@@ -422,48 +472,19 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Yeni Stok Ekle";
             // 
-            // panelAdmin
+            // DeleteIcon
             // 
-            this.panelAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(30)))), ((int)(((byte)(60)))));
-            this.panelAdmin.Controls.Add(this.label28);
-            this.panelAdmin.Controls.Add(this.label27);
-            this.panelAdmin.Controls.Add(this.panelAdminIkon);
-            this.panelAdmin.Location = new System.Drawing.Point(12, 873);
-            this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(220, 80);
-            this.panelAdmin.TabIndex = 10;
+            this.DeleteIcon.HeaderText = "sil";
+            this.DeleteIcon.Image = ((System.Drawing.Image)(resources.GetObject("DeleteIcon.Image")));
+            this.DeleteIcon.MinimumWidth = 6;
+            this.DeleteIcon.Name = "DeleteIcon";
             // 
-            // label28
+            // EditIcon
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(220)))));
-            this.label28.Location = new System.Drawing.Point(70, 42);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(109, 19);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "Sistem Yöneticisi";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(70, 18);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(108, 25);
-            this.label27.TabIndex = 1;
-            this.label27.Text = "Helin Kayar";
-            // 
-            // panelAdminIkon
-            // 
-            this.panelAdminIkon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(66)))), ((int)(((byte)(255)))));
-            this.panelAdminIkon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelAdminIkon.BackgroundImage")));
-            this.panelAdminIkon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelAdminIkon.Location = new System.Drawing.Point(13, 17);
-            this.panelAdminIkon.Name = "panelAdminIkon";
-            this.panelAdminIkon.Size = new System.Drawing.Size(44, 44);
-            this.panelAdminIkon.TabIndex = 0;
+            this.EditIcon.HeaderText = "Düzenle";
+            this.EditIcon.Image = ((System.Drawing.Image)(resources.GetObject("EditIcon.Image")));
+            this.EditIcon.MinimumWidth = 6;
+            this.EditIcon.Name = "EditIcon";
             // 
             // FormStock
             // 
@@ -482,12 +503,12 @@
             this.Load += new System.EventHandler(this.FormStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_stock)).EndInit();
             this.panel_sidebar.ResumeLayout(false);
+            this.panelAdmin.ResumeLayout(false);
+            this.panelAdmin.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelAddStock.ResumeLayout(false);
             this.panelAddStock.PerformLayout();
-            this.panelAdmin.ResumeLayout(false);
-            this.panelAdmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -522,5 +543,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panelAdminIkon;
+        private System.Windows.Forms.DataGridViewImageColumn DeleteIcon;
+        private System.Windows.Forms.DataGridViewImageColumn EditIcon;
     }
 }

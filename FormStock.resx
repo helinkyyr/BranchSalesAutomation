@@ -117,7 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="DeleteIcon.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DeleteIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAD+SURBVEhL7ZRBagJBEEXd5giBEMwZvEecV9AHiTfIEbIM
+        rvUS4j4LbyCSA2QZEu3KYqQGHcbqCbQ6SEjy4UPzq+p/+Ivu9f4ESriOIk8Kz0Z7m+b3sqAwVZGF46uK
+        lI6mHe7B1PslUJgkh7mEife7PD5DuN13fSzt1vsl0KIYtPSdx6IYeL8Evy8ginxFeFRY1TqsTLNZFwFv
+        ZQhXH3CjsDTa2zSbnR1QhcBsH1Kbw8zvnRyw47jeERm3zM8IaNRyUJffOyUgwnuzlmZdNuskYAP3UWRe
+        ayLzSusi4Cj+iIB1CHfJYSbXw2Hf+7VCRUYRXpL//htWu/Dgff6RhS0CqI2XmtbxMgAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <metadata name="EditIcon.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="EditIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFmSURBVEhL7ZW9SgNBEMdTamMjKKght7sKgoWg+AGKCmpt
+        ldaX8AHsJLdzB/oIVpZ5FButY+LNbgqrGO1E2cWct0Pc20udH0xz9/8YFm6vVpsyCStpb5ZLPGBSN8sm
+        Sl83jaeR9veZVA9raW+Z5jlEoPc4qC4H9R0wj+s32bxIsrqQ6pIDfjHAe5qZYzevGM4SPOdSfTJQV6ZE
+        JGqb5uaYYxkFMKna9DiKY8NldmbCrR5wUI+7SzTTwRj/CnSTvi/ihEt85wkestv+oohxi2pzQgsiUEdc
+        4tBqJQ4F6BMOeoEBPvl8QQU8yU7p5jZc4rPPZykrGLd5iC/HJ1y9e5vjoD6Km4f4HHxCIfHCPgccFMMN
+        Pp+DTyhaeiOK1bH5VorPDT6fQ7CQEOwLFhKCfcFCQrCvylXhjmqPfCaD5ub8XtMvubjyYKdx3ZmhuQ6s
+        pXcnK8EOA7VD88Zitgj94Zgx2tLNp/zHD2ceEqsz12LbAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="panelAdminIkon.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL

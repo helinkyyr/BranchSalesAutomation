@@ -16,6 +16,7 @@ namespace BranchSalesAutomation
     public partial class FormMain : Form
     {
         BranchSalesDbContext db = new BranchSalesDbContext();
+
         public FormMain()
         {
             InitializeComponent();
@@ -168,7 +169,21 @@ namespace BranchSalesAutomation
             iconPath.AddEllipse(0, 0, panelAdminIkon.Width - 1, panelAdminIkon.Height - 1);
 
             panelAdminIkon.Region = new Region(iconPath);
+            dgvLastProducts.AllowUserToResizeRows = false;
 
+            dgvLowStock.AllowUserToResizeRows = false;
+
+            dgvLastProducts.AllowUserToResizeColumns = false;
+
+            dgvLowStock.AllowUserToResizeColumns = false;
+            dgvLowStock.DefaultCellStyle.SelectionBackColor = Color.White;
+            dgvLowStock.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvTopSelling.DefaultCellStyle.SelectionBackColor = Color.White;
+            dgvTopSelling.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvLowStock.ClearSelection();
+            dgvTopSelling.ClearSelection();
         }
         private void MakePanelCircular(Panel panel)
         {
@@ -321,7 +336,11 @@ namespace BranchSalesAutomation
         }
         private void FormMain_Load_1(object sender, EventArgs e)
         {
-             DashboardData();
+            GetTodayRevenue();
+            LoadTopSellingProducts();
+            dgvTopSelling.ClearSelection();
+            dgvTopSelling.CurrentCell = null;
+            DashboardData();
             MakePanelCircle(panel_icon_products);
 
             MakePanelCircle(panel2);
@@ -356,6 +375,38 @@ namespace BranchSalesAutomation
             dgvLowStock.DefaultCellStyle.SelectionForeColor = Color.Black;
 
             dgvLowStock.ClearSelection();
+            GetTodaySales();
+            GetTodayRevenue();
+            dgvTopSelling.ReadOnly = true;
+
+            dgvTopSelling.AllowUserToAddRows = false;
+
+            dgvTopSelling.AllowUserToDeleteRows = false;
+
+            dgvTopSelling.RowHeadersVisible = false;
+
+            dgvTopSelling.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvTopSelling.BackgroundColor = Color.White;
+
+            dgvTopSelling.BorderStyle = BorderStyle.None;
+
+            dgvTopSelling.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvTopSelling.EnableHeadersVisualStyles = false;
+
+            dgvTopSelling.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.White;
+
+            dgvTopSelling.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI Semibold", 10);
+
+            dgvTopSelling.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvTopSelling.RowTemplate.Height = 32;
         }
 
         private void pictureBox13_Click(object sender, EventArgs e)
@@ -374,7 +425,7 @@ namespace BranchSalesAutomation
 
         private void button9_Click(object sender, EventArgs e)
         {
-            FormStock frm = new FormStock();
+            FormSales frm = new FormSales();
 
             frm.Show();
 
@@ -406,6 +457,67 @@ namespace BranchSalesAutomation
             frm.Show();
 
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.FormMain.DashboardData();
+            Program.FormMain.Show();
+
+            this.Close();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+        void GetTodayRevenue()
+        {
+
+            DateTime today = DateTime.Today;
+            DateTime tomorrow = today.AddDays(1);
+
+            decimal total = db.Sales
+                .Where(x => x.sale_date >= today &&
+                            x.sale_date < tomorrow)
+                .Sum(x => (decimal?)x.total) ?? 0;
+
+            label18.Text = total.ToString("N0") + " ₺";
+        }
+        void GetTodaySales()
+        {
+            DateTime today = DateTime.Today;
+            DateTime tomorrow = today.AddDays(1);
+
+            int totalSales = db.Sales
+                .Count(x => x.sale_date >= today &&
+                            x.sale_date < tomorrow);
+
+            label16.Text = totalSales.ToString();
+        }
+        void LoadTopSellingProducts()
+        {
+            dgvTopSelling.DataSource = db.Sales
+                .GroupBy(x => x.Stock.Product.product_name)
+                .Select(g => new
+                {
+                    Ürün = g.Key,
+                    Satış_Adedi = g.Sum(x => x.quantity)
+                })
+                .OrderByDescending(x => x.Satış_Adedi)
+                .Take(5)
+                .ToList();
+
+            dgvTopSelling.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        public void RefreshDashboard()
+        {
+            GetTodaySales();
+
+            GetTodayRevenue();
+
+            LoadTopSellingProducts();
         }
     }
 }
