@@ -180,6 +180,13 @@ namespace BranchSalesAutomation
                 stock.quantity -= quantity;
 
                 db.SaveChanges();
+            FormReports reportsForm =
+            Application.OpenForms["FormReports"] as FormReports;
+
+            if (reportsForm != null)
+            {
+                reportsForm.RefreshReports();
+            }
             FormMain mainForm =
             Application.OpenForms["FormMain"] as FormMain;
 

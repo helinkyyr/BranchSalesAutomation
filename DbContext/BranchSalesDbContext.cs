@@ -21,8 +21,6 @@ namespace BranchSalesAutomation.DatabaseContext
 
         public DbSet<Product> Products { get; set; }
 
-        public DbSet<Country> Countries { get; set; }
-
         public DbSet<Stock> Stocks { get; set; }
 
         public DbSet<Sales> Sales { get; set; }

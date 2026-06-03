@@ -96,10 +96,13 @@
     <Compile Include="Migrations\202606021058462_RemoveCountryRelation.Designer.cs">
       <DependentUpon>202606021058462_RemoveCountryRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202606032036531_FinalUpdate.cs" />
+    <Compile Include="Migrations\202606032036531_FinalUpdate.Designer.cs">
+      <DependentUpon>202606032036531_FinalUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Stock.cs" />
@@ -126,6 +129,9 @@
     <EmbeddedResource Include="Migrations\202606021058462_RemoveCountryRelation.resx">
       <DependentUpon>202606021058462_RemoveCountryRelation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202606032036531_FinalUpdate.resx">
+      <DependentUpon>202606032036531_FinalUpdate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +142,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

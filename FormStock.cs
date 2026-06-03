@@ -168,22 +168,43 @@ namespace BranchSalesAutomation
         {
             try
             {
-                Stock stock = new Stock()
+                int branchId =
+                    Convert.ToInt32(combo_branch.SelectedValue);
+
+                int productId =
+                    Convert.ToInt32(combo_product.SelectedValue);
+
+                int quantity =
+                    Convert.ToInt32(txt_stock_quantity.Text);
+
+                Stock stock = db.Stocks.FirstOrDefault(x =>
+                    x.branch_id == branchId &&
+                    x.product_id == productId);
+
+                if (stock != null)
                 {
-                    branch_id = Convert.ToInt32(combo_branch.SelectedValue),
+                    stock.quantity = quantity;
 
-                    product_id = Convert.ToInt32(combo_product.SelectedValue),
+                    MessageBox.Show("Mevcut stok güncellendi!");
+                }
+                else
+                {
+                    Stock newStock = new Stock()
+                    {
+                        branch_id = branchId,
+                        product_id = productId,
+                        quantity = quantity
+                    };
 
-                    quantity = Convert.ToInt32(txt_stock_quantity.Text)
-                };
+                    db.Stocks.Add(newStock);
 
-                db.Stocks.Add(stock);
+                    MessageBox.Show("Yeni stok eklendi!");
+                }
 
                 db.SaveChanges();
 
-                MessageBox.Show("Stok eklendi!");
-
                 btn_list.PerformClick();
+
                 dgv_stock.DataSource = db.Stocks
                 .Select(x => new
                 {
@@ -193,6 +214,7 @@ namespace BranchSalesAutomation
                     Stok = x.quantity
                 })
                 .ToList();
+
                 dgv_stock.ClearSelection();
             }
             catch (Exception ex)

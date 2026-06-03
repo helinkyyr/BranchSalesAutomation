@@ -375,6 +375,12 @@ namespace BranchSalesAutomation
 
             this.Close();
         }
+        public void RefreshReports()
+        {
+            LoadSalesChart();
+            LoadProductChart();
+            LoadSummary();
+        }
     }
     
 }
